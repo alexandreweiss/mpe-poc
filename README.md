@@ -19,8 +19,9 @@ For that PoC, we need :
 
 # Requirement
 
-- At least one AWS account with correct right assigned to controller
+- At least one AWS account able to create AWS EC2 identity
 - Subscribe to Aviatrix offer to get the customer ID (https://docs.aviatrix.com/documentation/latest/getting-started/getting-started-guide-aws.html)
+- Subscribe to BYOL as per doc step to deploy controller and copilot stack
 - A workstation that 
   - can access to terraform website,
   - can access github.com to clone repository,

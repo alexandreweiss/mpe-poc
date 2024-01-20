@@ -27,7 +27,7 @@ For that PoC, we need :
   - can access github.com to clone repository,
   - can execute terraform code,
   - access to AWS account using a user account
-  - 
+- A terraform.tfvars containing values like in terraform.tfvars.sample
   
 # Assumptions
 

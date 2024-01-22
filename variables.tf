@@ -78,4 +78,7 @@ variable "aws_account" {
   default     = "aws_admin"
 }
 
-
+variable "controller_ip" {
+  description = "IP or FQDN of the target Aviatrix controller"
+  type        = string
+}

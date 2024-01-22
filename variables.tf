@@ -35,8 +35,13 @@ variable "aws_r1_vpn_cidr" {
   default     = "10.13.0.0/24"
 }
 
+variable "aws_r1_vpn_user_cidr" {
+  description = "CIDR block allocated to users connecting to VPN GW"
+  default     = "172.20.20.0/24"
+}
+
 variable "aws_r1_vpn_tunnel_cidr" {
-  description = "CIDR block allocated to spoke 2 in region r1"
+  description = "String comma separated values of CIDR that need to be routed in split tunnel"
   default     = "10.0.0.0/16"
 }
 

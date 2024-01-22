@@ -30,6 +30,27 @@ variable "aws_r1_spoke_app2_cidr" {
   default     = "10.12.0.0/24"
 }
 
+variable "aws_r1_vpn_cidr" {
+  description = "CIDR block allocated to spoke 2 in region r1"
+  default     = "10.13.0.0/24"
+}
+
+variable "aws_r1_vpn_tunnel_cidr" {
+  description = "CIDR block allocated to spoke 2 in region r1"
+  default     = "10.0.0.0/16"
+}
+
+variable "vpn_user_email" {
+  description = "email address of the VPN user"
+  type        = string
+}
+
+variable "vpn_user_name" {
+  description = "Login of the VPN user"
+  type        = string
+  default     = "vpnuser"
+}
+
 variable "aws_r2_location" {
   default     = "sa-east-1"
   description = "region to deploy resources"

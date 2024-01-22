@@ -17,6 +17,9 @@ For that PoC, we need :
   - Two VPCs, each with an Aviatrix spoke in second region,
   - Each spoke is peered with its regional transit.
 
+- An Aviatrix VPN gateway is deployed along the spoke1 to be able to enter the dataplane
+  - Default user is vpnuser
+
 # Requirement
 
 - At least one AWS account able to create AWS EC2 identity

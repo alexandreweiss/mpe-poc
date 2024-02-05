@@ -23,11 +23,20 @@ For that PoC, we need :
 # Requirement
 
 - At least one AWS account able to create AWS EC2 identity
-- Subscribe to Aviatrix offer to get the customer ID (https://docs.aviatrix.com/documentation/latest/getting-started/getting-started-guide-aws.html)
-- Subscribe to BYOL as per doc step to deploy controller and copilot stack
-- A workstation that 
+- Increase necessary quotas:
+  - Elastic IP in Compute (EIP): default is normally 5, push it to 30
+  - VPC
+- Subscribe to Aviatrix offers :
+  - [Aviatrix Secure Cloud Networking (Includes Free Trial)](https://aws.amazon.com/marketplace/pp/prodview-qzvzwigqw72ek?sr=0-4&ref_=beagle&applicationId=AWSMPContessa) 
+  - [AWS Marketplace: Aviatrix Secure Networking Platform - BYOL](https://aws.amazon.com/marketplace/pp/prodview-nsys2ingy6m3w?sr=0-3&ref_=beagle&applicationId=AWSMPContessa)
+  - [AWS Marketplace: Aviatrix CoPilot](https://aws.amazon.com/marketplace/pp/prodview-hr74smekrfqiu?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
+  
+- Follow the doc to deploy controller and copilot
+  - [Getting started AWS](https://docs.aviatrix.com/documentation/latest/getting-started/getting-started-guide-aws.html)
+- A workstation that:
   - can access to terraform website,
-  - can access github.com to clone repository,
+  - can access the newly deployed controller / copilot public IP address,
+  - can access github.com to clone this repository,
   - can execute terraform code.
 - A terraform.tfvars containing values like in terraform.tfvars.sample
   
@@ -35,3 +44,7 @@ For that PoC, we need :
 
 - For fast deploy, we assume PoC is deployed as NON highly available. This can be changed easily by updating terraform code
 - We deploy Controller and Copilot is same region as first transit in a dedicated VPC
+
+# PoC follow up
+
+This page is used to track PoC use cases and if success criteria are met.

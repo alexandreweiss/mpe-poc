@@ -1,5 +1,4 @@
 admin_password = "your Aviatrix admin password"
 customer_name  = "your customer name (short, no space etc ...)"
 controller_ip = "Your controller public IP"
-vpn_user_email = "your user email address"
 aws_account = "Name of the AWS account onboarded on the controller"

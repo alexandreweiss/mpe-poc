@@ -45,6 +45,3 @@ For that PoC, we need :
 - For fast deploy, we assume PoC is deployed as NON highly available. This can be changed easily by updating terraform code
 - We deploy Controller and Copilot is same region as first transit in a dedicated VPC
 
-# PoC follow up
-
-This page is used to track PoC use cases and if success criteria are met.

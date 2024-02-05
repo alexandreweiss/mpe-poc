@@ -101,7 +101,6 @@ variable "admin_password" {
 
 variable "aws_account" {
   description = "Name of the AWS account onboarded to controller"
-  default     = "aws_admin"
 }
 
 variable "controller_ip" {

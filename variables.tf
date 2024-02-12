@@ -3,6 +3,11 @@ variable "customer_name" {
   default     = "contoso"
 }
 
+variable "ec2_connect_src_ip_r1" {
+  description = "Source IP to allow EC2 Instance connect"
+  default     = ["18.206.107.24/29"]
+}
+
 variable "aws_r1_location" {
   default     = "us-east-1"
   description = "region to deploy resources"
@@ -56,6 +61,11 @@ variable "vpn_user_name" {
   default     = "vpnuser"
 }
 
+variable "ec2_connect_src_ip_r2" {
+  description = "Source IP to allow EC2 Instance connect"
+  default     = ["18.228.70.32/29"]
+}
+
 variable "aws_r2_location" {
   default     = "sa-east-1"
   description = "region to deploy resources"
@@ -107,3 +117,4 @@ variable "controller_ip" {
   description = "IP or FQDN of the target Aviatrix controller"
   type        = string
 }
+

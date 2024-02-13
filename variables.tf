@@ -35,32 +35,6 @@ variable "aws_r1_spoke_app2_cidr" {
   default     = "10.12.0.0/24"
 }
 
-variable "aws_r1_vpn_cidr" {
-  description = "CIDR block allocated to spoke 2 in region r1"
-  default     = "10.13.0.0/24"
-}
-
-variable "aws_r1_vpn_user_cidr" {
-  description = "CIDR block allocated to users connecting to VPN GW"
-  default     = "172.20.20.0/24"
-}
-
-variable "aws_r1_vpn_tunnel_cidr" {
-  description = "String comma separated values of CIDR that need to be routed in split tunnel"
-  default     = "10.0.0.0/16"
-}
-
-variable "vpn_user_email" {
-  description = "email address of the VPN user"
-  type        = string
-}
-
-variable "vpn_user_name" {
-  description = "Login of the VPN user"
-  type        = string
-  default     = "vpnuser"
-}
-
 variable "ec2_connect_src_ip_r2" {
   description = "Source IP to allow EC2 Instance connect"
   default     = ["18.228.70.32/29"]
@@ -92,6 +66,10 @@ variable "aws_r2_spoke_app1_cidr" {
 variable "aws_r2_spoke_app2_cidr" {
   description = "CIDR block allocated to transit in region r2"
   default     = "10.22.0.0/24"
+}
+
+variable "source_ip_cidrs" {
+  description = "Source IP CIDRs to allow inbound connection to Guacamole"
 }
 
 variable "application_1" {

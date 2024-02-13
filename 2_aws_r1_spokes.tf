@@ -19,13 +19,20 @@ module "aws_r1_app1_vm" {
 
   name = var.application_1
 
-  ami                         = data.aws_ami.ubuntu.image_id
-  instance_type               = "t3a.small"
-  key_name                    = module.key_pair_r1.key_pair_name
+  ami           = data.aws_ami.ubuntu.image_id
+  instance_type = "t3a.small"
+  key_name      = module.key_pair_r1.key_pair_name
+
   monitoring                  = true
   subnet_id                   = module.aws_r1_spoke_app1.vpc.private_subnets[0].subnet_id
   associate_public_ip_address = false
   vpc_security_group_ids      = [aws_security_group.allow_all_internal_vpc_r1_app1.id, aws_security_group.allow_ec2_connect_r1_app1.id]
+  user_data = templatefile("${path.module}/2_set-host.tpl",
+    {
+      name           = "aws-${var.aws_r1_location_short}-${var.application_1}",
+      admin_password = var.admin_password
+  })
+  user_data_replace_on_change = true
 
   tags = {
     Application = var.application_1
@@ -60,6 +67,12 @@ module "aws_r1_app2_vm" {
   subnet_id                   = module.aws_r1_spoke_app2.vpc.private_subnets[0].subnet_id
   associate_public_ip_address = false
   vpc_security_group_ids      = [aws_security_group.allow_all_internal_vpc_r1_app2.id, aws_security_group.allow_ec2_connect_r1_app2.id]
+  user_data = templatefile("${path.module}/2_set-host.tpl",
+    {
+      name           = "aws-${var.aws_r1_location_short}-${var.application_2}",
+      admin_password = var.admin_password
+  })
+  user_data_replace_on_change = true
 
   tags = {
     Application = var.application_2
@@ -166,32 +179,3 @@ resource "aws_security_group" "allow_ec2_connect_r1_app2" {
   }
 }
 
-## Deploy VPN gateway
-
-# resource "aviatrix_gateway" "aws_r1_vpn_0" {
-#   cloud_type       = 1
-#   account_name     = var.aws_account
-#   gw_name          = "aws-${var.aws_r1_location_short}-vpn-0-${var.customer_name}"
-#   vpc_id           = module.aws_r1_spoke_app1.vpc.vpc_id
-#   vpc_reg          = var.aws_r1_location
-#   gw_size          = "t3.small"
-#   subnet           = module.aws_r1_spoke_app1.vpc.public_subnets[0].cidr
-#   vpn_access       = true
-#   vpn_cidr         = var.aws_r1_vpn_user_cidr
-#   additional_cidrs = var.aws_r1_vpn_tunnel_cidr
-#   max_vpn_conn     = "100"
-#   split_tunnel     = true
-#   enable_vpn_nat   = true
-#   vpn_protocol     = "TCP"
-# }
-
-# ## User VPN
-# resource "aviatrix_vpn_user" "aweiss" {
-
-#   user_email = var.vpn_user_email
-#   user_name  = var.vpn_user_name
-#   gw_name    = aviatrix_gateway.aws_r1_vpn_0.gw_name
-#   vpc_id     = module.aws_r1_spoke_app1.vpc.vpc_id
-
-#   depends_on = [aviatrix_gateway.aws_r1_vpn_0]
-# }

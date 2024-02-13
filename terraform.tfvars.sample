@@ -2,3 +2,4 @@ admin_password = "your Aviatrix admin password"
 customer_name  = "your customer name (short, no space etc ...)"
 controller_ip = "Your controller public IP"
 aws_account = "Name of the AWS account onboarded on the controller"
+source_ip_cidrs = ["Your CIDR 1 with /xx", "Your CIDR 2 with /xx]

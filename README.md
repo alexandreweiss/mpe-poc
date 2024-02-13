@@ -8,7 +8,7 @@ For that PoC, we need :
 - An Aviatrix Controller and Copilot deployed in a dedicated VPC.
 
 - Aviatrix transit deployed in two AWS regions :
-  - First transit in North Virinia being us-east-1, nammed use1 in the code,
+  - First transit in North Virinia being us-east-1, named use1 in the code,
   - Second transit in Sao Paulo being sa-east-1, named sae1 in the code,
   - Standard peering between those two regions over AWS backbone.
 
@@ -16,9 +16,8 @@ For that PoC, we need :
   - Two VPCs, each with an Aviatrix spoke in first region,
   - Two VPCs, each with an Aviatrix spoke in second region,
   - Each spoke is peered with its regional transit.
-
-- An Aviatrix VPN gateway is deployed along the spoke1 to be able to enter the dataplane
-  - Default user is vpnuser
+  - Each spoke contains a test EC2 instance accessible via Guacamole jumpbox
+  - Guacamole server is deployed in the first spoke of the first region. (Search for the URL to connect in the output after terraform deployment)
 
 # Requirement
 

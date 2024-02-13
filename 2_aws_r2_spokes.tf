@@ -19,12 +19,18 @@ module "aws_r2_app1_vm" {
 
   name = var.application_1
 
-  ami                         = data.aws_ami.ubuntu_r2.image_id
-  instance_type               = "t3a.small"
-  key_name                    = module.key_pair_r2.key_pair_name
-  monitoring                  = true
-  subnet_id                   = module.aws_r2_spoke_app1.vpc.private_subnets[0].subnet_id
-  vpc_security_group_ids      = [aws_security_group.allow_all_internal_vpc_r2_app1.id, aws_security_group.allow_ec2_connect_r2_app1.id]
+  ami                    = data.aws_ami.ubuntu_r2.image_id
+  instance_type          = "t3a.small"
+  key_name               = module.key_pair_r2.key_pair_name
+  monitoring             = true
+  subnet_id              = module.aws_r2_spoke_app1.vpc.private_subnets[0].subnet_id
+  vpc_security_group_ids = [aws_security_group.allow_all_internal_vpc_r2_app1.id, aws_security_group.allow_ec2_connect_r2_app1.id]
+  user_data = templatefile("${path.module}/2_set-host.tpl",
+    {
+      name           = "aws-${var.aws_r2_location_short}-${var.application_1}",
+      admin_password = var.admin_password
+  })
+  user_data_replace_on_change = true
   associate_public_ip_address = false
   providers = {
     aws = aws.r2
@@ -56,12 +62,18 @@ module "aws_r2_app2_vm" {
 
   name = var.application_2
 
-  ami                         = data.aws_ami.ubuntu_r2.image_id
-  instance_type               = "t3a.small"
-  key_name                    = module.key_pair_r2.key_pair_name
-  monitoring                  = true
-  subnet_id                   = module.aws_r2_spoke_app2.vpc.private_subnets[0].subnet_id
-  vpc_security_group_ids      = [aws_security_group.allow_all_internal_vpc_r2_app2.id, aws_security_group.allow_ec2_connect_r2_app2.id]
+  ami                    = data.aws_ami.ubuntu_r2.image_id
+  instance_type          = "t3a.small"
+  key_name               = module.key_pair_r2.key_pair_name
+  monitoring             = true
+  subnet_id              = module.aws_r2_spoke_app2.vpc.private_subnets[0].subnet_id
+  vpc_security_group_ids = [aws_security_group.allow_all_internal_vpc_r2_app2.id, aws_security_group.allow_ec2_connect_r2_app2.id]
+  user_data = templatefile("${path.module}/2_set-host.tpl",
+    {
+      name           = "aws-${var.aws_r2_location_short}-${var.application_2}",
+      admin_password = var.admin_password
+  })
+  user_data_replace_on_change = true
   associate_public_ip_address = false
   providers = {
     aws = aws.r2

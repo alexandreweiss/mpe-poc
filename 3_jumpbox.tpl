@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Inputs: ${username} ${admin_password} ${hostname_r1_app1} ${hostname_r1_app2} ${hostname_r2_app1} ${hostname_r2_app2} ${aws_r1_location_short} ${aws_r2_location_short} ${application_1} ${application_2}
+# Inputs: ${username} ${admin_password} ${hostname_r1_app1} ${hostname_r1_app2} ${hostname_r2_app1} ${hostname_r2_app2} ${hostname_r1_spoke_a_app1_nat} ${hostname_r1_spoke_b_app1_nat} ${aws_r1_location_short} ${aws_r2_location_short} ${application_1} ${application_2}
 
 # Auto restart services during apt rather than prompt for restart (new in Ubuntu 22)
 sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
@@ -58,6 +58,18 @@ echo "<user-mapping>
     <connection name=\"aws-${aws_r2_location_short}-${application_2}\">
       <protocol>ssh</protocol>
       <param name=\"hostname\">${hostname_r2_app2}</param>
+      <param name=\"username\">ubuntu</param>
+      <param name=\"password\">${admin_password}</param>
+    </connection>
+    <connection name=\"aws-${aws_r1_location_short}-${application_1}-spoke-a(vip:${hostname_r1_spoke_a_app1_nat})">
+      <protocol>ssh</protocol>
+      <param name=\"hostname\">${hostname_r1_spoke_a_app1_nat}</param>
+      <param name=\"username\">ubuntu</param>
+      <param name=\"password\">${admin_password}</param>
+    </connection>
+    <connection name=\"aws-${aws_r1_location_short}-${application_1}-spoke-b(vip:${hostname_r1_spoke_b_app1_nat})\">
+      <protocol>ssh</protocol>
+      <param name=\"hostname\">${hostname_r1_spoke_b_app1_nat}</param>
       <param name=\"username\">ubuntu</param>
       <param name=\"password\">${admin_password}</param>
     </connection>

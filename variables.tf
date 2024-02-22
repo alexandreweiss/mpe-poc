@@ -35,6 +35,21 @@ variable "aws_r1_spoke_app2_cidr" {
   default     = "10.12.0.0/24"
 }
 
+variable "aws_r1_spoke_app1_nat_cidr" {
+  description = "CIDR block allocated to spoke for app1 NATed in region r1"
+  default     = "10.13.0.0/24"
+}
+
+variable "aws_r1_spoke_a_app1_advertised_ip" {
+  description = "For that spoke, the virtual IP we advertise to hide internal CIDR"
+  default     = "172.20.20.22"
+}
+
+variable "aws_r1_spoke_b_app1_advertised_ip" {
+  description = "For that spoke, the virtual IP we advertise to hide internal CIDR"
+  default     = "172.20.20.23"
+}
+
 variable "ec2_connect_src_ip_r2" {
   description = "Source IP to allow EC2 Instance connect"
   default     = ["18.228.70.32/29"]
@@ -70,6 +85,7 @@ variable "aws_r2_spoke_app2_cidr" {
 
 variable "source_ip_cidrs" {
   description = "Source IP CIDRs to allow inbound connection to Guacamole"
+  type        = list(string)
 }
 
 variable "application_1" {

@@ -11,12 +11,3 @@ module "aws_transit_r1" {
   name                   = "aws-${var.aws_r1_location_short}-transit-${var.customer_name}"
   ha_gw                  = false
 }
-
-output "aws_transit_r1" {
-  value     = module.aws_transit_r1
-  sensitive = true
-}
-
-output "aws_transit_r1_gw_name" {
-  value = module.aws_transit_r1.transit_gateway.gw_name
-}

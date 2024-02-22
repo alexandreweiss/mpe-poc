@@ -14,10 +14,14 @@ For that PoC, we need :
 
 - Aviatrix spoke deployed in each of the above region :
   - Two VPCs, each with an Aviatrix spoke in first region,
+  - Two VPCs with overlaping CIDRs, each with an Aviatrix spoke in first region,
   - Two VPCs, each with an Aviatrix spoke in second region,
   - Each spoke is peered with its regional transit.
   - Each spoke contains a test EC2 instance accessible via Guacamole jumpbox
   - Guacamole server is deployed in the first spoke of the first region. (Search for the URL to connect in the output after terraform deployment)
+
+Diagram of the overall architecture :
+![Architecture Diagram](images/overall-diagram.png)
 
 # Requirement
 

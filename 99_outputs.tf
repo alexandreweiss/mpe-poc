@@ -14,6 +14,14 @@ output "ssh_aws_r2_app2" {
   value = module.aws_r2_app2_vm.private_ip
 }
 
+output "ssh_aws_r1_app1_spoke_a" {
+  value = var.aws_r1_spoke_a_app1_advertised_ip
+}
+
+output "ssh_aws_r1_app1_spoke_b" {
+  value = var.aws_r1_spoke_b_app1_advertised_ip
+}
+
 output "aws_r1" {
   value = var.aws_r1_location
 }

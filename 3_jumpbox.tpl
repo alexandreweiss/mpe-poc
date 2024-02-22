@@ -61,7 +61,7 @@ echo "<user-mapping>
       <param name=\"username\">ubuntu</param>
       <param name=\"password\">${admin_password}</param>
     </connection>
-    <connection name=\"aws-${aws_r1_location_short}-${application_1}-spoke-a(vip:${hostname_r1_spoke_a_app1_nat})">
+    <connection name=\"aws-${aws_r1_location_short}-${application_1}-spoke-a(vip:${hostname_r1_spoke_a_app1_nat})\">
       <protocol>ssh</protocol>
       <param name=\"hostname\">${hostname_r1_spoke_a_app1_nat}</param>
       <param name=\"username\">ubuntu</param>

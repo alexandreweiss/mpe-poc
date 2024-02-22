@@ -4,12 +4,12 @@ terraform {
       source = "aviatrixsystems/aviatrix"
     }
   }
-  cloud {
-    organization = "ananableu"
-    workspaces {
-      name = "mpe-poc"
-    }
-  }
+  # cloud {
+  #   organization = "ananableu"
+  #   workspaces {
+  #     name = "mpe-poc"
+  #   }
+  # }
 }
 
 provider "aviatrix" {

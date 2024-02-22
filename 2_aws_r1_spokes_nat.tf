@@ -1,4 +1,4 @@
-# We deploy two spokes with overlaping CIDRs but advertising different /32 IP address to be used for inbound
+# We deploy two spokes with overlapping CIDRs but advertising different /32 IP address to be used for inbound
 # Spoke A
 module "aws_r1_spoke_a_app1_nat" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"

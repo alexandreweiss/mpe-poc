@@ -35,7 +35,7 @@ Diagram of the overall architecture :
   - [AWS Marketplace: Aviatrix CoPilot](https://aws.amazon.com/marketplace/pp/prodview-hr74smekrfqiu?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
   
 - Follow the doc to deploy controller and copilot
-  - [Getting started AWS](https://docs.aviatrix.com/documentation/latest/getting-started/getting-started-guide-aws.html)
+  - [Getting started Azure](https://docs.aviatrix.com/documentation/latest/getting-started/getting-started-guide-aws.html)
 - A workstation that:
   - can access to terraform website,
   - can access the newly deployed controller / copilot public IP address,
